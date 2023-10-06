@@ -14,7 +14,3 @@ The repository contains the following files:
 
 3. 20231002_MiniDataAnalysis1.md
    - The output of 20231002_MiniDataAnalysis1.Rmd and the key deliverable for this milestone
-
-4. 20231002_MiniDataAnalysis1_files
-   - This folder contains the .png image files that were generated automatically when knitting the Rmd file
-   - This is a good resource to view the output graphs in more detail
