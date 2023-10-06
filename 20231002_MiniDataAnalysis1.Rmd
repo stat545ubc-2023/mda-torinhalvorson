@@ -107,9 +107,16 @@ And that is exactly the first thing that you will do!
 
 <!-------------------------- Start your work below ---------------------------->
 _The following code will discover some key attributes of each dataset._
+I figured out how to write a simple function which will return some of the key attributes of a dataset. The function will return:
+1. An overview of the dataset using `glimpse`
+
+2. The number of rows of the dataset
+
+3. The number of columns of the dataset
+
+4. The column names of the dataset
 
 ```{r}
-#I figured out how to write a simple function which will return some of the key attributes of a dataset.
 
 fn <- function(df) {
   glimpse(df)

@@ -183,10 +183,17 @@ comments outside of the code chunk?
 <!-------------------------- Start your work below ---------------------------->
 
 *The following code will discover some key attributes of each dataset.*
+I figured out how to write a simple function which will return some of
+the key attributes of a dataset. The function will return: 1. An
+overview of the dataset using `glimpse`
+
+2.  The number of rows of the dataset
+
+3.  The number of columns of the dataset
+
+4.  The column names of the dataset
 
 ``` r
-#I figured out how to write a simple function which will return some of the key attributes of a dataset.
-
 fn <- function(df) {
   glimpse(df)
   print(paste("The number of rows is", nrow(df)))
