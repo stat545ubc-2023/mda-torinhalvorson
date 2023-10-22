@@ -63,10 +63,13 @@ From milestone 1, you should have an idea of the basic structure of your dataset
 First, write out the 4 research questions you defined in milestone 1 were. This will guide your work through milestone 2:
 
 <!-------------------------- Start your work below ---------------------------->
-1. *FILL_THIS_IN*
-2. *FILL_THIS_IN*
-3. *FILL_THIS_IN*
-4. *FILL_THIS_IN*
+1. I would like to continue to explore whether ‘M’ and ‘B’ differ in other characteristics, such as symmetry, smoothness etc.
+
+2. What is the relationship between size and compactness?
+
+3. Is the fractal dimension associated with any other variable?
+
+4. What is the largest and smallest tumour in the ‘B’ and ‘M’ groups based on area, perimeter and radius?
 <!----------------------------------------------------------------------------->
 
 Here, we will investigate your data using various data manipulation and graphing functions.
@@ -88,17 +91,42 @@ Also make sure that you're using dplyr and ggplot2 rather than base R. Outside o
 
 **Graphing:**
 
-6. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.
-7. Make a graph where it makes sense to customize the alpha transparency.
+5. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.
+6. Make a graph where it makes sense to customize the alpha transparency.
 
 Using variables and/or tables you made in one of the "Summarizing" tasks: 
 
-8. Create a graph that has at least two geom layers. 
-9. Create 3 histograms, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
+7. Create a graph that has at least two geom layers. 
+8. Create 3 histograms, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
 
 Make sure it's clear what research question you are doing each operation for!
 
 <!------------------------- Start your work below ----------------------------->
+# Research Question (RQ) 1
+## Do ‘M’ and ‘B’ tumours differ in their symmetry?
+
+1. Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
+
+```{r}
+#This code will compute the range, mean, median and standard deviation of the symmetry across the 'B' and 'M' groups.
+head(cancer_sample)
+cancer_sample %>%
+  group_by(diagnosis) %>%
+  summarize(min_symmetry = min(symmetry_mean), max_symmetry = max(symmetry_mean), mean_symmetry = mean(symmetry_mean), median_symmetry = median(symmetry_mean), standarddeviation_symmetry = sd(symmetry_mean))
+#As we can see, the output shows that there are actually only very small differences in symmetry between the two groups, although we would need proper statistical analysis to assess the significance of these differences.
+```
+8. Create 3 histograms, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
+```{r}
+#The following code will create histograms of symmetry, with 10, 40 or 300 bins, for both the 'B' and 'M' groups.
+library(ggridges)
+for (i in c(10, 40, 300)) {
+  histo <- ggplot(cancer_sample) + 
+  geom_density_ridges(mapping = aes(x = symmetry_mean, y = diagnosis), stat = "binline", bins = i, scale = 0.95, draw_baseline = FALSE)
+  print(histo)
+}
+#From this code, we can see that 10 bins is too broad to capture the subtle differences between groups in this dataset with 569 observations. Meanwhile, the 300-bin histogram is too 'noisy', allowing outliers to disproportionately impact the impression of the data. However, the 40-bin histogram seems to work well, with enough granularity to distinguish differences between the 'M' and 'B' groups, while still simplifying an otherwise busy dataset. 
+#This provides insight into RQ1, suggesting that tumours in the 'M' group are more symmetric than those in the 'B' group, which was not as clear from the summary statistics table alone. 
+```
 
 <!----------------------------------------------------------------------------->
 
