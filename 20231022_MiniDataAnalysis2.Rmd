@@ -108,6 +108,7 @@ Make sure it's clear what research question you are doing each operation for!
 1. Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
 
 ```{r}
+#Change this - compute the number of observations.
 #This code will compute the range, mean, median and standard deviation of the symmetry across the 'B' and 'M' groups.
 head(cancer_sample)
 cancer_sample %>%
@@ -128,6 +129,50 @@ for (i in c(10, 40, 300)) {
 #This provides insight into RQ1, suggesting that tumours in the 'M' group are more symmetric than those in the 'B' group, which was not as clear from the summary statistics table alone. 
 ```
 
+#RQ2
+## What is the relationship between tumour size and compactness?
+
+3. Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! *An example: age in years into "child, teen, adult, senior".*
+
+```{r}
+#The following code will divide tumour size into large, medium and small groups, creating a new categorical variable 'compactness_cat'
+```
+
+7. Create a graph that has at least two geom layers. 
+
+```{r}
+#The following code will create boxplots of tumour compactness, showing the median and interquartile range, for each tumour size category. A second geom layer, points, will be overlaid on the histogram and will visualize differences in the compactness distribution between 'B' and 'M' tumours using different colours.
+```
+
+#RQ3
+##Is the fractal dimension associated with any other variable?
+
+1.  Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
+
+```{r}
+#The following code will compute the range, mean, median and standard deviation for the fractal dimension across the 'B' and 'M' groups of the diagnosis variable.
+```
+
+5. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.
+
+```{r}
+#The following code will create scatterplots of each numerical variable against the fractal dimension variable, to visualize potential relationships between the fractal dimension and other variables. 
+```
+
+#RQ4
+##4. What is the largest and smallest tumour in the ‘B’ and ‘M’ groups based on area, perimeter and radius?
+
+1.  Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
+
+```{r}
+#The following code will compute the range, mean, median and standard deviation for the area, perimeter and radius across the 'B' and 'M' groups of the diagnosis variable.
+```
+
+6. Make a graph where it makes sense to customize the alpha transparency.
+
+```{r}
+#The following code will create boxplots of the area, perimeter and radius for the 'B' and 'M' groups, showing the smallest observation in each group as a dark point to allow this observation to stand out.
+```
 <!----------------------------------------------------------------------------->
 
 ### 1.3 (2 points)
