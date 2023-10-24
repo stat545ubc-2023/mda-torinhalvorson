@@ -1,16 +1,16 @@
-# STAT545A Mini Data Analysis Milestone 1
+# STAT545A Mini Data Analysis Milestone 2
 ## Torin Halvorson
 
-This repository was created for the Mini Data Analysis Milestone 1, as part of the STAT545A course. The primary objective was to leverage ggplot2 and dplyr functions to visualize and manipulate semi-tidy datasets from the `datateachr` package.
+This folder contains Mini Data Analysis Milestone 2, as part of the STAT545A course. The primary objective was to further explore the cancer_sample dataset from the `datateachr` package, focusing on mastering dplyr and ggplot2 functions, building models and reading 
 
 The repository contains the following files:
 
-1. README.md
+1. READMEmilestone2.md
    - a brief description of the project
 
-2. 20231002_MiniDataAnalysis1.Rmd
+2. 20231022_MiniDataAnalysis2.Rmd
    - The source Rmd file for the project
-   - Explores several datasets from the `datateachr` package, including a detailed exploratory analysis of the `cancer_samples` dataset using dplyr and ggplot2
+   - Explores the cancer_sample dataset from the `datateachr` package, defining and investigating four distinct research questions through a series of 8 data tabulating, visualization and analysis tasks
 
-3. 20231002_MiniDataAnalysis1.md
-   - The output of 20231002_MiniDataAnalysis1.Rmd and the key deliverable for this milestone
+3. 20231022_MiniDataAnalysis2.md
+   - The output of 20231022_MiniDataAnalysis2.Rmd and the key deliverable for this milestone
