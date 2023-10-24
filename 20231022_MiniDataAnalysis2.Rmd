@@ -104,7 +104,7 @@ Make sure it's clear what research question you are doing each operation for!
 <!------------------------- Start your work below ----------------------------->
 # Research Question (RQ) 1
 ## Do ‘M’ and ‘B’ tumours differ in other characteristics such as symmetry, smoothness, etc?
-_I will begin by looking at differences in symmmetry between 'B' and 'M' tumours._
+_I will begin by looking at differences in symmetry between 'B' and 'M' tumours._
 
 2.  Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
 ```{r}
@@ -127,8 +127,8 @@ for (i in c(10, 40, 300)) {
 #This provides insight into RQ1, suggesting that tumours in the 'M' group are more symmetric than those in the 'B' group, which was not as clear from the summary statistics table alone. 
 ```
 
-#RQ2
-## What is the relationship between tumour size and compactness?
+# RQ2 
+## What is the relationship between tumour size and compactness? 
 
 3. Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! *An example: age in years into "child, teen, adult, senior".*
 
@@ -156,8 +156,8 @@ ggplot(cancer_sample1, aes(x = factor(radius_cat, levels = c("Very Small", "Smal
 #Based on these results, there is a clear trend of increasing compactness with larger radius category, and we can see that most of the larger tumours are in the 'M' category. 
 ```
 
-#RQ3
-##Is the fractal dimension associated with any other variable?
+# RQ3 
+## Is the fractal dimension associated with any other variable? 
 
 1.  Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
 
@@ -175,10 +175,6 @@ fractals
 
 ```{r}
 #The following code will create scatterplots of each 'mean' variable in the table against the mean fractal dimension, to visualize and explore potential relationships between the fractal dimension and other variables. 
-#rename columns of 'mean' variables for easier reading
-for (col in 3:11) {
-    colnames(cancer_sample)[col] <-  sub("_mean.*", "", colnames(cancer_sample)[col])
-}
 
 #start by defining a function to create the desired scatterplot, based on retrieval of columns by subsetting
 fn <- function(z) {
@@ -198,8 +194,8 @@ for (i in 3:11) {
 #from these plots, most variables do not appear to have a strong association with the mean fractal dimension. However, smoothness, compactness and symmetry seem to be somewhat positively associated, while measures of size appear negatively associated.
 ```
 
-#RQ4
-##4. What is the largest and smallest tumour in the ‘B’ and ‘M’ groups based on radius?
+# RQ4 
+## 4. What is the largest and smallest tumour in the ‘B’ and ‘M’ groups based on radius? 
 
 1.  Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
 
@@ -238,7 +234,7 @@ ggplot(cancer_sample1, aes(x = diagnosis, y = radius_mean)) +
 Based on the operations that you've completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you've investigated your data a bit more? Which research questions are yielding interesting results?
 
 <!------------------------- Write your answer here ---------------------------->
-Based on these preliminary investigations, I have made significant progress toward understanding my initial questions. I have shown that 'B' and 'M' tumours differ substantially in their symmetry, defined a positive diagnosis-dependent association between tumour size and compactness, discovered several variables with apparent relationships to fractal dimension, and identified the largest and smallest tumours in each diagnosis group. Although these trends are quite clear in most cases, we are limited in our understanding of their significance, as we have not conducted formal statistical analyses. This could be a potential next step in refining these questions and confirming results. In my view, the most interesting results came from comparing the 'B' and 'M' groups across various characteristics. It will be useful to continue to group observations by the diagnosis in future analyses to further investigate these trends.
+_Based on these preliminary investigations, I have made significant progress toward understanding my initial questions. I have shown that 'B' and 'M' tumours differ substantially in their symmetry, defined a positive diagnosis-dependent association between tumour size and compactness, discovered several variables with apparent relationships to fractal dimension, and identified the largest and smallest tumours in each diagnosis group. Although these trends are quite clear in most cases, we are limited in our understanding of their significance, as we have not conducted formal statistical analyses. This could be a potential next step in refining these questions and confirming results. In my view, the most interesting results came from comparing the 'B' and 'M' groups across various characteristics. It will be useful to continue to group observations by the diagnosis in future analyses to further investigate these trends._
 <!----------------------------------------------------------------------------->
 
 # Task 2: Tidy your data 
@@ -256,7 +252,7 @@ A reminder of the definition of *tidy* data:
 Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have \>8 variables, just pick 8, and explain whether the data is untidy or tidy.
 
 <!--------------------------- Start your work below --------------------------->
-The cancer_sample dataset is tidy. Each row is one observation, each column is a variable, and each cell is a value. There are no variables listed as values, and no values are listed as variables. Each observation only appears as one row, without duplication.
+_The cancer_sample dataset is tidy. Each row is one observation, each column is a variable, and each cell is a value. There are no variables listed as values, and no values are listed as variables. Each observation only appears as one row, without duplication._
 <!----------------------------------------------------------------------------->
 
 ### 2.2 (4 points)
@@ -291,16 +287,16 @@ Now, you should be more familiar with your data, and also have made progress in 
 
 <!-------------------------- Start your work below ---------------------------->
 
-1. I would like to continue to explore whether ‘M’ and ‘B’ differ in other characteristics, such as symmetry, smoothness etc.
+1. _I would like to continue to explore whether ‘M’ and ‘B’ differ in other characteristics, such as symmetry, smoothness etc._
 
-2. Is the fractal dimension associated with any other variable?
+2. _Is the fractal dimension associated with any other variable?_
 
 <!----------------------------------------------------------------------------->
 
 Explain your decision for choosing the above two research questions.
 
 <!--------------------------- Start your work below --------------------------->
-I selected RQ1 because we explored differences in symmetry between 'M' and 'B' tumours earlier, but we did not have a chance to look at many other variables in detail between these two groups. I also selected RQ2 because although the plots created earlier give us a rough idea of relationships between the fractal dimension and other variables, there are many other ways to identify potential relationships (e.g., summary statistics, different types of plots, etc), that we could still potentially explore.
+_I selected RQ1 because we explored differences in symmetry between 'M' and 'B' tumours earlier, but we did not have a chance to look at many other variables in detail between these two groups. I also selected RQ2 because although the plots created earlier give us a rough idea of relationships between the fractal dimension and other variables, there are many other ways to identify potential relationships (e.g., summary statistics, different types of plots, etc), that we could still potentially explore._
 <!----------------------------------------------------------------------------->
 
 Now, try to choose a version of your data that you think will be appropriate to answer these 2 questions. Use between 4 and 8 functions that we've covered so far (i.e. by filtering, cleaning, tidy'ing, dropping irrelevant columns, etc.).
@@ -330,9 +326,9 @@ Pick a research question from 1.2, and pick a variable of interest (we'll call i
 
 **Research Question**: 
 
-1. I would like to continue to explore whether ‘M’ and ‘B’ differ in other characteristics, such as symmetry, smoothness etc.
+1. _I would like to continue to explore whether ‘M’ and ‘B’ differ in other characteristics, such as symmetry, smoothness etc._
 
-**Variable of interest**: texture
+**Variable of interest**: _texture_
 
 <!----------------------------------------------------------------------------->
 

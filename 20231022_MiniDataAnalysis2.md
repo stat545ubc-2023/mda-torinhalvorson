@@ -170,7 +170,7 @@ for!
 
 ## Do ‘M’ and ‘B’ tumours differ in other characteristics such as symmetry, smoothness, etc?
 
-*I will begin by looking at differences in symmmetry between ‘B’ and ‘M’
+*I will begin by looking at differences in symmetry between ‘B’ and ‘M’
 tumours.*
 
 2.  Compute the number of observations for at least one of your
@@ -219,7 +219,9 @@ for (i in c(10, 40, 300)) {
 #This provides insight into RQ1, suggesting that tumours in the 'M' group are more symmetric than those in the 'B' group, which was not as clear from the summary statistics table alone. 
 ```
 
-\#RQ2 \## What is the relationship between tumour size and compactness?
+# RQ2
+
+## What is the relationship between tumour size and compactness?
 
 3.  Create a categorical variable with 3 or more groups from an existing
     numerical variable. You can use this new variable in the other
@@ -278,7 +280,9 @@ ggplot(cancer_sample1, aes(x = factor(radius_cat, levels = c("Very Small", "Smal
 #Based on these results, there is a clear trend of increasing compactness with larger radius category, and we can see that most of the larger tumours are in the 'M' category. 
 ```
 
-\#RQ3 \##Is the fractal dimension associated with any other variable?
+# RQ3
+
+## Is the fractal dimension associated with any other variable?
 
 1.  Compute the *range*, *mean*, and *two other summary statistics* of
     **one numerical variable** across the groups of **one categorical
@@ -309,11 +313,13 @@ fractals
 
 ``` r
 #The following code will create scatterplots of each 'mean' variable in the table against the mean fractal dimension, to visualize and explore potential relationships between the fractal dimension and other variables. 
+
 #start by defining a function to create the desired scatterplot, based on retrieval of columns by subsetting
 fn <- function(z) {
   ggplot() +
   geom_point(mapping = aes(x = cancer_sample[[z]], y = cancer_sample$fractal_dimension_mean)) +
-  labs(x = paste0(colnames(cancer_sample)[z]), y = "fractal_dimension_mean") +
+  scale_x_log10() +
+  labs(x = paste0(colnames(cancer_sample)[z]), y = "mean fractal dimension") +
     theme_classic()
 }
 
@@ -324,14 +330,23 @@ for (i in 3:11) {
 }
 ```
 
-![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-3.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-4.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-5.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-6.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-7.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-8.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-9.png)<!-- -->
+![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-3.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-4.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-5.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-6.png)<!-- -->
+
+    ## Warning: Transformation introduced infinite values in continuous x-axis
+
+![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-7.png)<!-- -->
+
+    ## Warning: Transformation introduced infinite values in continuous x-axis
+
+![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-8.png)<!-- -->![](20231022_MiniDataAnalysis2_files/figure-gfm/unnamed-chunk-7-9.png)<!-- -->
 
 ``` r
 #from these plots, most variables do not appear to have a strong association with the mean fractal dimension. However, smoothness, compactness and symmetry seem to be somewhat positively associated, while measures of size appear negatively associated.
 ```
 
-\#RQ4 \##4. What is the largest and smallest tumour in the ‘B’ and ‘M’
-groups based on radius?
+# RQ4
+
+## 4. What is the largest and smallest tumour in the ‘B’ and ‘M’ groups based on radius?
 
 1.  Compute the *range*, *mean*, and *two other summary statistics* of
     **one numerical variable** across the groups of **one categorical
@@ -389,7 +404,7 @@ research questions are yielding interesting results?
 
 <!------------------------- Write your answer here ---------------------------->
 
-Based on these preliminary investigations, I have made significant
+*Based on these preliminary investigations, I have made significant
 progress toward understanding my initial questions. I have shown that
 ‘B’ and ‘M’ tumours differ substantially in their symmetry, defined a
 positive diagnosis-dependent association between tumour size and
@@ -402,7 +417,7 @@ potential next step in refining these questions and confirming results.
 In my view, the most interesting results came from comparing the ‘B’ and
 ‘M’ groups across various characteristics. It will be useful to continue
 to group observations by the diagnosis in future analyses to further
-investigate these trends.
+investigate these trends.*
 <!----------------------------------------------------------------------------->
 
 # Task 2: Tidy your data
@@ -424,10 +439,10 @@ pick 8, and explain whether the data is untidy or tidy.
 
 <!--------------------------- Start your work below --------------------------->
 
-The cancer_sample dataset is tidy. Each row is one observation, each
+*The cancer_sample dataset is tidy. Each row is one observation, each
 column is a variable, and each cell is a value. There are no variables
 listed as values, and no values are listed as variables. Each
-observation only appears as one row, without duplication.
+observation only appears as one row, without duplication.*
 <!----------------------------------------------------------------------------->
 
 ### 2.2 (4 points)
@@ -514,10 +529,10 @@ analysis in the remaining tasks:
 
 <!-------------------------- Start your work below ---------------------------->
 
-1.  I would like to continue to explore whether ‘M’ and ‘B’ differ in
-    other characteristics, such as symmetry, smoothness etc.
+1.  *I would like to continue to explore whether ‘M’ and ‘B’ differ in
+    other characteristics, such as symmetry, smoothness etc.*
 
-2.  Is the fractal dimension associated with any other variable?
+2.  *Is the fractal dimension associated with any other variable?*
 
 <!----------------------------------------------------------------------------->
 
@@ -525,14 +540,14 @@ Explain your decision for choosing the above two research questions.
 
 <!--------------------------- Start your work below --------------------------->
 
-I selected RQ1 because we explored differences in symmetry between ‘M’
+*I selected RQ1 because we explored differences in symmetry between ‘M’
 and ‘B’ tumours earlier, but we did not have a chance to look at many
 other variables in detail between these two groups. I also selected RQ2
 because although the plots created earlier give us a rough idea of
 relationships between the fractal dimension and other variables, there
 are many other ways to identify potential relationships (e.g., summary
 statistics, different types of plots, etc), that we could still
-potentially explore.
+potentially explore.*
 <!----------------------------------------------------------------------------->
 
 Now, try to choose a version of your data that you think will be
@@ -587,10 +602,10 @@ these.
 
 **Research Question**:
 
-1.  I would like to continue to explore whether ‘M’ and ‘B’ differ in
-    other characteristics, such as symmetry, smoothness etc.
+1.  *I would like to continue to explore whether ‘M’ and ‘B’ differ in
+    other characteristics, such as symmetry, smoothness etc.*
 
-**Variable of interest**: texture
+**Variable of interest**: *texture*
 
 <!----------------------------------------------------------------------------->
 
@@ -702,14 +717,14 @@ library(here)
 
     ## Warning: package 'here' was built under R version 4.2.3
 
-    ## here() starts at C:/Users/Torin/OneDrive - UBC/Documents/STAT545A/mda-torinhalvorson/mda-torinhalvorson
+    ## here() starts at C:/Users/Torin/OneDrive - UBC/Documents/STAT545A/mda-torinhalvorson
 
 ``` r
 library(readr)
 here::here()
 ```
 
-    ## [1] "C:/Users/Torin/OneDrive - UBC/Documents/STAT545A/mda-torinhalvorson/mda-torinhalvorson"
+    ## [1] "C:/Users/Torin/OneDrive - UBC/Documents/STAT545A/mda-torinhalvorson"
 
 ``` r
 write_csv(fractals, path = here::here("output", "fractals.csv"))
@@ -738,7 +753,7 @@ Use the functions `saveRDS()` and `readRDS()`.
 here::here()
 ```
 
-    ## [1] "C:/Users/Torin/OneDrive - UBC/Documents/STAT545A/mda-torinhalvorson/mda-torinhalvorson"
+    ## [1] "C:/Users/Torin/OneDrive - UBC/Documents/STAT545A/mda-torinhalvorson"
 
 ``` r
 write_rds(fractals, path = here::here("output", "fractals.rds"))
